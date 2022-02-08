@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { SearchProvider } from '@sajari/react-search-ui'
+import config from './config';
+
+console.log(config);
+const {pipeline, fields, categoryFilter} = config;
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <SearchProvider
+    search={{
+      pipeline,
+      fields,
+      filters: [categoryFilter]
+    }}
+    //searchOnLoad
+  >
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </SearchProvider>,
   document.getElementById('root')
 );
 
