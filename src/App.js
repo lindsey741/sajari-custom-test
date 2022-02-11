@@ -12,9 +12,9 @@ function App() {
       {/* <ViewType/> */}
       <ResultsPerPage options={[5, 10, 15]} />
       <div className="container">
-        <div className="filters">
+        {/* <div className="filters">
           <Filter type="list" name="category" title="Category" />
-        </div>
+        </div> */}
         {/* <div className="results">
           <Results />
         </div> */}

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { SearchProvider } from '@sajari/react-search-ui'
+import CustomSearch from './components/CustomSearch';
 import config from './config';
 
 console.log(config);
@@ -13,13 +14,14 @@ ReactDOM.render(
   <SearchProvider
     search={{
       pipeline,
-      fields,
-      filters: [categoryFilter]
+      // fields,
+      // filters: [categoryFilter]
     }}
     //searchOnLoad
   >
     <React.StrictMode>
-      <App />
+      {/* <App /> */}
+      <CustomSearch/>
     </React.StrictMode>
   </SearchProvider>,
   document.getElementById('root')
