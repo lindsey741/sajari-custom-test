@@ -1,6 +1,7 @@
 import * as React from "react";
 import {useSearch} from '@sajari/react-hooks';
-import {Input, Pagination} from '@sajari/react-search-ui'
+import {Input, Pagination} from '@sajari/react-search-ui';
+import { TabPanels,  TabPanel } from '@sajari/react-components';
 import config from "../config";
 
 function CustomSearch() {
@@ -9,12 +10,16 @@ function CustomSearch() {
     const renderResult = result => {
         const values = result.values        
         return (
+            <>
+                <TabPanels>
+                <TabPanel>
             <div className="card" key={values._id}>
                 {resultProps.showImage &&
                     <div className="result-image" >
                         <img src={values.image}  alt={values.name}/>
                     </div>
                 }
+                
                 <div className="result-description">
                     <div className="result-name">
                         <h4>
@@ -28,7 +33,13 @@ function CustomSearch() {
                         <a href={values.url} > {values.description} </a>
                     </div>
                 </div>
+                
             </div>
+            </TabPanel>
+             <TabPanel><a href={values.url}>{values.title}</a></TabPanel>
+            </TabPanels>
+            {/* // </Tabs> */}
+            </>
         )
     }
 

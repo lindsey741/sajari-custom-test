@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 import { SearchProvider } from '@sajari/react-search-ui'
 import CustomSearch from './components/CustomSearch';
+import { Tabs, Tab, TabList } from '@sajari/react-components';
 import config from './config';
 
 console.log(config);
-const {pipeline, fields, categoryFilter} = config;
+const { pipeline, fields, categoryFilter } = config;
 
 ReactDOM.render(
   <SearchProvider
@@ -17,11 +18,20 @@ ReactDOM.render(
       // fields,
       // filters: [categoryFilter]
     }}
-    //searchOnLoad
+  //searchOnLoad
   >
     <React.StrictMode>
       {/* <App /> */}
-      <CustomSearch/>
+      <Tabs>
+        <TabList>
+          <Tab>All</Tab>
+          <Tab>Pdfs</Tab>
+          <Tab>SEC Filings</Tab>
+
+        </TabList>
+
+        <CustomSearch />
+      </Tabs>
     </React.StrictMode>
   </SearchProvider>,
   document.getElementById('root')
